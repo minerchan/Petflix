@@ -1,0 +1,28 @@
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: inherit;
+}
+
+body {
+  height: 100vh;
+
+  box-sizing: border-box;
+}
+
+#loginPage {
+  background-image: url("../imagens/fundoLogin.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+}
+#menuPage {
+  background-color: black;
+}
+
+html {
+  font-size: 62.5%;
+}
