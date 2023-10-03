@@ -1,0 +1,20 @@
+#paginaTodos {
+  background-color: black;
+
+  section {
+    display: grid;
+    gap: 2rem;
+    margin-top: 3rem;
+    width: 90%;
+    margin: 0 auto;
+    grid-template: 1fr / repeat(auto-fill, minmax(23.1rem, 1fr));
+  }
+  .card {
+    width: 23.1rem;
+    height: 13rem;
+    background-color: white;
+    cursor: pointer;
+    background-size: cover;
+    background-position: center;
+  }
+}

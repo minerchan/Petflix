@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>adicionar</title>
+  </head>
+  <body id="paginaTodos">
+    <nav>
+      <a href="./menu.html"><h1 id="titulo">petflix</h1></a>
+      <div id="flexSubMenu">
+        <h4>adicionar</h4>
+        <h4>filmes</h4>
+        <h4>séries</h4>
+        <a href="./emConstrucao.html"><h4>todos</h4></a>
+      </div>
+    </nav>
+    <form id="formAdicionar">
+      <div>
+        <label for="criarNome">Nome</label>
+        <input id="criarNome" type="text" />
+      </div>
+      <div>
+        <label>Imagem</label>
+        <select>
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+          <option value="6">6</option>
+          <option value="7">7</option>
+          <option value="8">8</option>
+          <option value="9">9</option>
+          <option value="10">10</option>
+        </select>
+      </div>
+      <div>
+        <label for="criarGenero">Gênero</label>
+        <input id="criarGenero" type="text" />
+      </div>
+      <div id="criarElenco">
+        <div class="escolha">
+          <input type="radio" name="elenco" value="gato" />
+          <label> Gato </label>
+        </div>
+        <div class="escolha">
+          <input type="radio" name="elenco" value="cachorro" />
+          <label>Cachorro </label>
+        </div>
+        <div class="escolha">
+          <input type="radio" name="elenco" value="coelho" />
+          <label>Coelho </label>
+        </div>
+      </div>
+      <button>Criar</button>
+    </form>
+    <script src="./adicionar.js"></script>
+  </body>
+</html>

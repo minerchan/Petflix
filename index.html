@@ -7,23 +7,24 @@
     <title>Petflix - Login</title>
   </head>
   <body id="loginPage">
-    <div class="loginBox">
-      <h1>Entrar</h1>
+    <form class="loginBox">
+      <h1 id="loginTitulo">Entrar</h1>
       <input
+        id="loginDados"
         class="dados"
         type="text"
-        placeholder="Email ou número de telefone"
+        placeholder="Nome da conta"
       />
-      <input class="dados" type="text" placeholder="Senha" />
+      <input id="loginSenha" class="dados" type="text" placeholder="Senha" />
       <div class="gridBotao">
-        <button>Entrar</button>
+        <button id="loginSubmit">Entrar</button>
         <div class="flexComum">
           <input type="checkbox" />
           <p>Lembre-se de mim</p>
         </div>
-        <a href="./menu.html">Precisa de ajuda?</a>
+        <a id="botaoCriarConta">Crie sua conta</a>
       </div>
-    </div>
+    </form>
     <script src="./index.js"></script>
   </body>
 </html>

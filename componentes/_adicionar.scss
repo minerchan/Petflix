@@ -1,0 +1,43 @@
+#formAdicionar {
+  display: flex;
+  flex-direction: column;
+  background-color: transparent;
+  width: 85%;
+  margin: 2rem auto;
+  padding: 3rem;
+  gap: 2rem;
+  font-size: 2rem;
+  color: white;
+
+  input {
+    height: 3rem;
+  }
+  select {
+    height: 3rem;
+    padding: 0 1rem;
+    font-size: 1.5rem;
+  }
+  div {
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+  }
+  #criarElenco {
+    flex-direction: row;
+    gap: 2rem;
+  }
+  .escolha {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 2.1rem;
+    letter-spacing: 0.1rem;
+  }
+  button {
+    height: 5rem;
+    cursor: pointer;
+    font-size: 1.8rem;
+    font-family: "Gabarito", cursive;
+    letter-spacing: 0.1rem;
+  }
+}
