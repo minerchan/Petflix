@@ -36,7 +36,6 @@ a:active {
 }
 
 .loginBox {
-  background-color: black;
   height: 66rem;
   width: 45rem;
   position: absolute;
@@ -220,9 +219,50 @@ nav #flexSubMenu h4::first-letter {
   display: grid;
   gap: 2rem;
   margin-top: 3rem;
-  width: 90%;
+  width: 96%;
   margin: 0 auto;
   grid-template: 1fr/repeat(auto-fill, minmax(23.1rem, 1fr));
+}
+#paginaTodos section .boxDetalhes {
+  padding: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  border: 5px solid rgba(255, 255, 255, 0.6);
+  height: 75rem;
+  width: 50rem;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background-color: rgba(0, 0, 0, 0.7);
+  z-index: 999;
+  color: white;
+}
+#paginaTodos section .boxDetalhes .botoesJanela {
+  display: flex;
+  width: -moz-fit-content;
+  width: fit-content;
+  margin-left: auto;
+  gap: 1rem;
+}
+#paginaTodos section .boxDetalhes .botoesJanela button {
+  background-color: transparent;
+  width: 2.4rem;
+  height: 2.4rem;
+  cursor: pointer;
+  border: transparent;
+  border-radius: 0.2rem;
+}
+#paginaTodos section .boxDetalhes img {
+  width: 100%;
+}
+#paginaTodos section .boxDetalhes h1 {
+  font-size: 3rem;
+  text-transform: uppercase;
+}
+#paginaTodos section .boxDetalhes p {
+  font-size: 2rem;
 }
 #paginaTodos .card {
   width: 23.1rem;
