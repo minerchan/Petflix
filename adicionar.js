@@ -39,3 +39,30 @@ criarForm.addEventListener("click", (e) => {
     postandoDados(dado, "Series");
   }
 });
+
+async function atualizarDados(dados, secao, id) {
+  const res = await fetch(
+    `https://tjdlbtauuudscnqswkly.supabase.co/rest/v1/${secao}?id=eq.${id}`,
+    {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Prefer: "return=minimal",
+        apikey: API_KEY,
+        authorization: `Bearer ${API_KEY}`,
+      },
+      body: JSON.stringify(dados),
+    }
+  );
+}
+
+AtualizarForm.addEventListener("click", (e) => {
+  e.preventDefault();
+  let dadosAtualizados = {
+    nome: criarNome.value,
+    imagem: Math.floor(Math.random() * 10) + 1,
+    genero: criarGenero.value,
+    elenco: document.querySelector('input[name="elenco"]:checked').value,
+  };
+  atualizarDados(dadosAtualizados, "Filmes", atualizarID.value);
+});

@@ -1,6 +1,35 @@
 const API_KEY =
   "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpc3MiOiJzdXBhYmFzZSIsInJlZiI6InRqZGxidGF1dXVkc2NucXN3a2x5Iiwicm9sZSI6ImFub24iLCJpYXQiOjE2OTYzNDg3MDcsImV4cCI6MjAxMTkyNDcwN30.-Lh_8oC0S31gdGpAu0giga1hkPVO65p5GVuhlnF2vTo";
 
+async function deletar(id, secao) {
+  const response = await fetch(
+    `https://tjdlbtauuudscnqswkly.supabase.co/rest/v1/${secao}?id=eq.${id}`,
+    {
+      method: "DELETE",
+      headers: {
+        apikey: API_KEY,
+        Authorization: `Bearer ${API_KEY}`,
+      },
+    }
+  );
+}
+
+async function atualizarDados(dados, secao, id) {
+  const res = await fetch(
+    `https://tjdlbtauuudscnqswkly.supabase.co/rest/v1/${secao}?id=eq.${id}`,
+    {
+      method: "PATCH",
+      headers: {
+        "Content-Type": "application/json",
+        Prefer: "return=minimal",
+        apikey: API_KEY,
+        authorization: `Bearer ${API_KEY}`,
+      },
+      body: JSON.stringify(dados),
+    }
+  );
+}
+
 async function buscandoDados() {
   const res = await fetch(
     "https://tjdlbtauuudscnqswkly.supabase.co/rest/v1/Filmes",
@@ -16,6 +45,11 @@ async function buscandoDados() {
 
   for (let i = 0; i < data.length; i++) {
     let lancamento = data[i].lancamento;
+    let dataComum = new Date(lancamento);
+    const dia = dataComum.getDate().toString().padStart(2, "0");
+    const mes = (dataComum.getMonth() + 1).toString().padStart(2, "0");
+    const ano = dataComum.getFullYear();
+    const dataFormatada = `${dia}/${mes}/${ano}`;
     let nome = data[i].nome;
     let imagem = data[i].imagem;
     let genero = data[i].genero;
@@ -64,7 +98,7 @@ async function buscandoDados() {
     boxDetalhes.appendChild(h1);
 
     let p1 = document.createElement("p");
-    p1.textContent = `Lançamento: ${lancamento}`;
+    p1.textContent = `Lançamento: ${dataFormatada}`;
     boxDetalhes.appendChild(p1);
 
     let p2 = document.createElement("p");
@@ -86,6 +120,48 @@ async function buscandoDados() {
     divCard.addEventListener("click", () => {
       boxDetalhes.style.display = "flex";
     });
+
+    let lixeira = document.createElement("button");
+    boxDetalhes.appendChild(lixeira);
+    lixeira.className = "lixeira";
+    lixeira.addEventListener("click", () => {
+      let resposta = prompt(
+        "Tem certeza que deseja excluir este clássico? Por favor responda sim ou não"
+      );
+      if (resposta === "sim") {
+        divCard.remove();
+        boxDetalhes.remove();
+        deletar(data[i].id, "Filmes");
+      } else if (resposta === "não") {
+      } else {
+        alert("Resposta inválida");
+      }
+    });
+
+    let img4 = document.createElement("img");
+    img4.src = "./imagens/botoes/lixeira.png";
+    lixeira.appendChild(img4);
+
+    let atualizar = document.createElement("button");
+    boxDetalhes.appendChild(atualizar);
+    atualizar.className = "atualizarBtn";
+    let img5 = document.createElement("img");
+    img5.src = "./imagens/botoes/atualizar.png";
+    atualizar.appendChild(img5);
+
+    atualizar.addEventListener("click", () => {
+      let nomeNovo = prompt("Para qual nome você quer mudar?");
+      let generoNovo = prompt("E qual o gênero?");
+
+      let dadosAtualizados = {
+        nome: nomeNovo,
+        genero: generoNovo,
+        imagem: data[i].imagem,
+        elenco: data[i].elenco,
+      };
+
+      atualizarDados(dadosAtualizados, "Filmes", data[i].id);
+    });
   }
 }
 
@@ -104,6 +180,11 @@ async function buscandoDadosSeries() {
 
   for (let i = 0; i < data.length; i++) {
     let lancamento = data[i].lancamento;
+    let dataComum = new Date(lancamento);
+    const dia = dataComum.getDate().toString().padStart(2, "0");
+    const mes = (dataComum.getMonth() + 1).toString().padStart(2, "0");
+    const ano = dataComum.getFullYear();
+    const dataFormatada = `${dia}/${mes}/${ano}`;
     let nome = data[i].nome;
     let imagem = data[i].imagem;
     let genero = data[i].genero;
@@ -152,7 +233,7 @@ async function buscandoDadosSeries() {
     boxDetalhes.appendChild(h1);
 
     let p1 = document.createElement("p");
-    p1.textContent = `Lançamento: ${lancamento}`;
+    p1.textContent = `Lançamento: ${dataFormatada}`;
     boxDetalhes.appendChild(p1);
 
     let p2 = document.createElement("p");
@@ -174,10 +255,49 @@ async function buscandoDadosSeries() {
     divCard.addEventListener("click", () => {
       boxDetalhes.style.display = "flex";
     });
+    let lixeira = document.createElement("button");
+    boxDetalhes.appendChild(lixeira);
+    lixeira.className = "lixeira";
+    lixeira.addEventListener("click", () => {
+      let resposta = prompt(
+        "Tem certeza que deseja excluir este clássico? Por favor responda sim ou não"
+      );
+      if (resposta === "sim") {
+        divCard.remove();
+        boxDetalhes.remove();
+        deletar(data[i].id, "Series");
+      } else if (resposta === "não") {
+      } else {
+        alert("Resposta inválida");
+      }
+    });
+
+    let img4 = document.createElement("img");
+    img4.src = "./imagens/botoes/lixeira.png";
+    lixeira.appendChild(img4);
+
+    let atualizar = document.createElement("button");
+    boxDetalhes.appendChild(atualizar);
+    atualizar.className = "atualizarBtn";
+    let img5 = document.createElement("img");
+    img5.src = "./imagens/botoes/atualizar.png";
+    atualizar.appendChild(img5);
+
+    atualizar.addEventListener("click", () => {
+      let nomeNovo = prompt("Para qual nome você quer mudar?");
+      let generoNovo = prompt("E qual o gênero?");
+
+      let dadosAtualizados = {
+        nome: nomeNovo,
+        genero: generoNovo,
+        imagem: data[i].imagem,
+        elenco: data[i].elenco,
+      };
+
+      atualizarDados(dadosAtualizados, "Series", data[i].id);
+    });
   }
 }
-
-// fechar.addEventListener("click", () => {});
 
 buscandoDados();
 buscandoDadosSeries();

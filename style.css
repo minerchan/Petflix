@@ -187,6 +187,13 @@ nav #flexSubMenu h4::first-letter {
   color: white;
 }
 
+video {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
 #emConstrucao {
   background-image: url("../imagens/emConstrucao.png");
   background-size: cover;
@@ -271,6 +278,30 @@ nav #flexSubMenu h4::first-letter {
   cursor: pointer;
   background-size: cover;
   background-position: center;
+}
+#paginaTodos .lixeira {
+  position: absolute;
+  top: 97%;
+  left: 97%;
+  transform: translate(-100%, -100%);
+  background-color: transparent;
+  width: 4rem;
+  height: 4rem;
+  cursor: pointer;
+  border: transparent;
+  border-radius: 0.2rem;
+}
+#paginaTodos .atualizarBtn {
+  position: absolute;
+  top: 97%;
+  left: 85%;
+  transform: translate(-100%, -100%);
+  background-color: transparent;
+  width: 4rem;
+  height: 4rem;
+  cursor: pointer;
+  border: transparent;
+  border-radius: 0.2rem;
 }
 
 #formAdicionar {

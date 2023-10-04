@@ -15,7 +15,7 @@ async function buscandoDados() {
   const data = await res.json();
 
   for (let i = 0; i < data.length; i++) {
-    let lancamento = data[i].lancamento;
+    let lancamento = data[i];
     let nome = data[i].nome;
     let imagem = data[i].imagem;
     let genero = data[i].genero;

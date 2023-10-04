@@ -10,13 +10,21 @@
     <nav>
       <a href="./menu.html"><h1 id="titulo">petflix</h1></a>
       <div id="flexSubMenu">
-        <h4>adicionar</h4>
-        <h4>filmes</h4>
-        <h4>séries</h4>
-        <a href="./emConstrucao.html"><h4>todos</h4></a>
+        <a href="./adicionar.html"><h4>adicionar</h4></a>
+        <a href="./filmes.html"><h4>filmes</h4></a>
+        <a href="./series.html"><h4>séries</h4></a>
+        <a href="./todos.html"><h4>todos</h4></a>
       </div>
     </nav>
     <form id="formAdicionar">
+      <div>
+        <label for="atualizarID">ID</label>
+        <input
+          id="atualizarID"
+          type="number"
+          placeholder="Campo opcional, só é necessário para atualizar"
+        />
+      </div>
       <div>
         <label for="criarNome">Nome</label>
         <input id="criarNome" type="text" />
@@ -47,7 +55,7 @@
         </div>
       </div>
       <button id="criarForm">Criar</button>
-      <button>Atualizar</button>
+      <button id="AtualizarForm">Atualizar</button>
     </form>
     <script src="./adicionar.js"></script>
   </body>
